@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "my-filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/home/fqs/workspace/me/test"
+      ]
+    }
+  }
+}
