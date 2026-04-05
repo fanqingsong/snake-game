@@ -10,15 +10,20 @@
 - **Canvas API** - 游戏渲染
 - **Vanilla JavaScript** - 游戏逻辑
 - **CSS3** - 样式和动画
+- **MCP (Model Context Protocol)** - AI 助手文件系统接口
 
 ## 项目结构
 
 ```
 .
-├── snake.html       # 主游戏文件（包含所有HTML、CSS、JS）
-├── GAME_GUIDE.md    # 用户使用指南
-├── CLAUDE.md        # 本文件（项目上下文）
-└── .gitignore       # Git忽略规则
+├── snake.html                 # 主游戏文件（包含所有HTML、CSS、JS）
+├── mcp-filesystem-server.py   # MCP 服务器实现
+├── .mcprc.json               # MCP 配置文件
+├── requirements.txt           # Python 依赖
+├── GAME_GUIDE.md             # 用户使用指南
+├── MCP_GUIDE.md              # MCP 工具使用指南
+├── CLAUDE.md                 # 本文件（项目上下文）
+└── .gitignore                # Git忽略规则
 ```
 
 ## 核心功能
@@ -143,6 +148,47 @@ python3 -m http.server 8080
 - Canvas API 文档：https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
 - LocalStorage API：https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 - 游戏开发最佳实践：https://developer.mozilla.org/en-US/docs/Games
+
+## MCP 集成
+
+### 概述
+
+项目包含一个 Model Context Protocol (MCP) 服务器，提供文件系统操作能力。AI 助手可以通过 MCP 协议安全地读取和管理项目文件。
+
+### 可用工具
+
+1. **read_game_file** - 读取项目文件内容
+2. **list_project_files** - 列出项目文件
+3. **get_game_stats** - 获取项目统计信息
+4. **update_readme** - 更新 README.md
+5. **create_backup** - 创建文件备份
+
+### 安装和使用
+
+```bash
+# 安装依赖
+pip install -r requirements.txt
+
+# 启动 MCP 服务器
+python3 mcp-filesystem-server.py
+```
+
+详细使用说明请参考 [MCP_GUIDE.md](./MCP_GUIDE.md)
+
+### MCP 配置示例
+
+在 MCP 客户端配置文件中添加：
+
+```json
+{
+  "mcpServers": {
+    "snake-filesystem": {
+      "command": "python3",
+      "args": ["mcp-filesystem-server.py"]
+    }
+  }
+}
+```
 
 ---
 

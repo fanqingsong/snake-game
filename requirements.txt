@@ -1,0 +1,7 @@
+# MCP Filesystem Server Dependencies
+# Model Context Protocol SDK for Python
+mcp>=1.0.0
+
+# For development and testing (optional)
+# pytest>=7.0.0
+# black>=23.0.0

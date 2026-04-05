@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "snake-filesystem": {
+      "command": "python3",
+      "args": [
+        "mcp-filesystem-server.py"
+      ],
+      "description": "Filesystem operations for Snake Game project",
+      "enabled": true
+    }
+  }
+}
